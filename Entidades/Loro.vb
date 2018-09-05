@@ -7,8 +7,6 @@
 
     Sub New(nombre As String)
         Me.Nombre = nombre
-        _fechaNacimiento = ""
-        _edad = ""
         _memoria = New Queue(Of String)
         texto = ""
     End Sub
@@ -39,9 +37,9 @@
         _memoria.Enqueue(Value)
     End Sub
     Public Function Hablar() As String
-        If _memoria.Count > 0 Then
+        While _memoria.Count > 0
             texto = texto & _memoria.Dequeue & ""
-        End If
+        End While
         Return texto
     End Function
 End Class
