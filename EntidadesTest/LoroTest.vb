@@ -2,7 +2,9 @@
 Module LoroTest
 
     Sub Main()
-        Dim loro1 As New Loro(nombre:="Chaplin")
+        Dim loro1 As New Loro("Chaplin", "12/07/1995")
+
+        Console.WriteLine("Edad del loro: " & loro1.CalcularEdad)
 
         loro1.Escuchar("Hola")
         loro1.Escuchar(" Pepe")

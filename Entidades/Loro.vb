@@ -5,8 +5,13 @@
     Private _memoria As Queue(Of String)
     Private texto As String
 
-    Sub New(nombre As String)
+    Public Sub New()
+        Me.New("", "")
+    End Sub
+
+    Sub New(nombre As String, fechanacimiento As Date)
         Me.Nombre = nombre
+        Me.fechaNacimiento = fechanacimiento
         _memoria = New Queue(Of String)
         texto = ""
     End Sub
@@ -19,6 +24,7 @@
             _nombre = value
         End Set
     End Property
+
     Public Property fechaNacimiento As Date
         Get
             Return _fechaNacimiento
@@ -27,9 +33,12 @@
             _fechaNacimiento = value
         End Set
     End Property
-    Private Function CalcularEdad(fechaNacimiento As Date) As UShort
+
+    Public Function CalcularEdad() As UShort
         Return Now.Year - fechaNacimiento.Year
     End Function
+
+
     Public Overrides Function ToString() As String
         Return Nombre
     End Function
